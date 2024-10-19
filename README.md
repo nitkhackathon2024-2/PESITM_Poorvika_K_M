@@ -6,7 +6,7 @@ Here's a more detailed and informative version of the `README.md` file, updated 
 
 # Design Pattern Detector
 
-This project is a **Design Pattern Detector** developed for identifying common design patterns in JavaScript code. The project includes a Flask-based web interface that allows users to input JavaScript code and detect design patterns such as Singleton, Factory, Observer, Decorator, Strategy, Command, and Adapter.
+This project is a **Design Pattern Detector** developed for identifying common design patterns in JavaScript,,Python,Java code. The project includes a Flask-based web interface that allows users to input JavaScript code and detect design patterns such as Singleton, Factory, Observer, Decorator, Strategy, Command, and Adapter.
 
 ## Features
 
@@ -18,7 +18,7 @@ This project is a **Design Pattern Detector** developed for identifying common d
   - Strategy
   - Command
   - Adapter
-- Supports code analysis for JavaScript
+- Supports code analysis for JavaScript,Python,Java
 - Web-based interface for code input and result display
 - Easy-to-use and extensible architecture for adding more patterns and languages
 
@@ -62,11 +62,8 @@ cd design-pattern-detector
 
 ### 2. Install Required Dependencies
 
-The required Python packages can be installed using the `requirements.txt` file provided with the project:
+The required Python packages can be installed
 
-```bash
-pip install -r requirements.txt
-```
 
 If the `requirements.txt` file is not available, you can manually install the necessary dependencies:
 
@@ -140,25 +137,92 @@ design-pattern-detector/
 
 You can test the functionality of the pattern detectors by using sample JavaScript code snippets for each pattern. Input the code snippets into the web interface and check whether the corresponding design patterns are correctly detected.
 
-Example test for the **Factory Pattern**:
+Example test for the **Observer Pattern**:
 
-```javascript
-function Car(make, model) {
-    this.make = make;
-    this.model = model;
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+interface Observer {
+    void update(String message);
 }
 
-function CarFactory() {
-    this.createCar = function(make, model) {
-        return new Car(make, model);
-    };
+class ConcreteObserver implements Observer {
+    private String name;
+
+    public ConcreteObserver(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public void update(String message) {
+        System.out.println(name + " received: " + message);
+    }
 }
 
-const factory = new CarFactory();
-const car1 = factory.createCar('Toyota', 'Corolla');
+class Subject {
+    private List<Observer> observers = new ArrayList<>();
+
+    public void addObserver(Observer observer) {
+        observers.add(observer);
+    }
+
+    public void notifyObservers(String message) {
+        for (Observer observer : observers) {
+            observer.update(message);
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Subject subject = new Subject();
+        Observer observer1 = new ConcreteObserver("Observer 1");
+        Observer observer2 = new ConcreteObserver("Observer 2");
+        
+        subject.addObserver(observer1);
+        subject.addObserver(observer2);
+        
+        subject.notifyObservers("Hello Observers!");  // Output: Observer 1 received: Hello Observers!
+                                                       //         Observer 2 received: Hello Observers!
+    }
+}
+
+
 ```
 
-Expected result: Factory Pattern detected.
+Expected result: Observer Pattern detected.
+
+---
+
+Example test for the **Singleton Pattern**:
+
+```javascript
+const Singleton = (function () {
+    let instance;
+
+    function createInstance() {
+        return new Object("I am the instance");
+    }
+
+    return {
+        getInstance: function () {
+            if (!instance) {
+                instance = createInstance();
+            }
+            return instance;
+        },
+    };
+})();
+
+// Usage
+const instance1 = Singleton.getInstance();
+const instance2 = Singleton.getInstance();
+console.log(instance1 === instance2); // true
+
+```
+
+Expected result: Singleton Pattern detected.
 
 ---
 
