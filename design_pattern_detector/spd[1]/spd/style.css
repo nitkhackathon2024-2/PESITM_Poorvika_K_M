@@ -1,0 +1,104 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #0B0C0D; /* Dark background */
+    color: #EAEAEA; /* Light gray for text */
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #1DB954; /* Green for title */
+    font-size: 2.5em; /* Larger font size for title */
+    margin-bottom: 20px; /* Space below title */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Text shadow for depth */
+}
+
+h2 {
+    color: #EAEAEA; /* Light text for subheadings */
+    margin-top: 20px;
+    border-bottom: 2px solid #1DB954; /* Bottom border with green */
+    padding-bottom: 10px;
+    font-size: 1.5em; /* Increased size for subheadings */
+}
+
+select, input, button {
+    padding: 12px;
+    border: 1px solid #444; /* Darker border */
+    border-radius: 5px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    width: 200px;
+    background-color: #1C1C1C; /* Darker background for inputs */
+    color: #EAEAEA; /* Light text color for inputs */
+    transition: border-color 0.3s;
+}
+
+select:focus, input:focus, textarea:focus {
+    border-color: #1DB954; /* Highlight border on focus */
+    outline: none; /* Remove default outline */
+}
+
+button {
+    background-color: #1DB954; /* Green background */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    border: none; /* Remove default button border */
+}
+
+button:hover {
+    background-color: #1A9D45; /* Darker green on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+button:active {
+    transform: scale(0.95); /* Scale down when clicked */
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #444; /* Darker border */
+    border-radius: 5px;
+    font-size: 16px;
+    resize: vertical; /* Allows users to resize the textarea vertically */
+    background-color: #1C1C1C; /* Darker background for textarea */
+    color: #EAEAEA; /* Light text color for textarea */
+    transition: border-color 0.3s;
+}
+
+#customPatternsList, #detectedPatterns {
+    background-color: #1C1C1C; /* Darker background for lists */
+    border: 1px solid #444; /* Dark border */
+    border-radius: 5px;
+    padding: 15px;
+    margin-top: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Slightly more pronounced shadow */
+}
+
+#customPatternsList p, #detectedPatterns p {
+    margin: 5px 0;
+    padding: 5px;
+    border-left: 4px solid #1DB954; /* Add left border for style */
+}
+
+.highlight {
+    background-color: rgba(29, 185, 84, 0.3); /* Light green highlight for detected patterns */
+    border-radius: 2px;
+    padding: 2px; /* Add padding for better appearance */
+}
+
+@media (max-width: 600px) {
+    select, input, button {
+        width: 100%; /* Make input fields full-width on small screens */
+    }
+
+    textarea {
+        height: 80px; /* Reduce height of textarea on smaller screens */
+    }
+}

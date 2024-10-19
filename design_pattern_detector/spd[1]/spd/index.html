@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Analyzer Plugin</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        textarea {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        select, input, button {
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        #customPatternsList, #detectedPatterns {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Design Pattern Detector</h1>
+
+    <!-- Language Selection -->
+    <select id="languageSelect">
+        <option value="javascript">JavaScript</option>
+        <option value="java">Java</option>
+        <option value="python">Python</option>
+    </select>
+
+    <!-- Add Custom Pattern -->
+    <div>
+        <h2>Add Custom Pattern</h2>
+        <input type="text" id="patternName" placeholder="Pattern Name">
+        <input type="text" id="patternRegex" placeholder="Regex Pattern">
+        <input type="text" id="patternDescription" placeholder="Description">
+        <button id="addPatternButton">Add Pattern</button>
+    </div>
+
+    <div id="customPatternsList"></div>
+
+    <!-- Code Analyzer -->
+    <div>
+        <h2>Code Input</h2>
+        <textarea id="codeInput" placeholder="Enter code to analyze" rows="10"></textarea>
+        <button id="detectPatternButton">Detect Design Pattern</button>
+    </div>
+
+    <!-- Detected Patterns -->
+    <div id="detectedPatterns"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
